@@ -1,4 +1,4 @@
-(ns zsh-history.core
+(ns cmdstat.core
   (:require [environ.core :refer [env]]
             [clojure.string :as cs]
             [jansi-clj.core :refer :all])
@@ -24,8 +24,8 @@
                       (let [command (magenta command)
                             weight (cyan (str weight "times"))
                             arrow (yellow "=>")]
-                        (format "%s %s %s\n" command arrow weight)))]
-    (cs/join (map format-one history-map))))
+                        (format "%s %s %s" command arrow weight)))]
+    (cs/join "\n" (map format-one history-map))))
 
 (defn format-history-lines
   [history-lines]
@@ -37,9 +37,12 @@
 
 (defn -main
   [& args]
-  (-> (env :home)
-      (str "/.zsh_history")
-      slurp
-      (cs/split #"\n")
-      format-history-lines
-      print))
+  (let [file-path (if args
+                    (first args)
+                    (-> (env :home)
+                        (str "/.zsh_history")))]
+    (-> file-path
+        slurp
+        (cs/split #"\n")
+        format-history-lines
+        println)))

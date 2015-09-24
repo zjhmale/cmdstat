@@ -1,7 +1,7 @@
-(ns zsh-history.core-test
+(ns cmdstat.core-test
   (:require [clojure.test :refer :all]
             [environ.core :refer [env]]
-            [zsh-history.core :refer :all]))
+            [cmdstat.core :refer :all]))
 
 (deftest env-test
   (testing "should get the same path"
