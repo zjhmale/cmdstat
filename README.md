@@ -1,36 +1,19 @@
-# zsh-history
+## cmdstat
 
-FIXME: description
+a tool to find you top 10 command ever your used
 
 ## Installation
 
-Download from http://example.com/FIXME.
+```
+./install.sh
+```
 
 ## Usage
 
-FIXME: explanation
-
-    $ java -jar zsh-history-0.1.0-standalone.jar [args]
+![cleantha](./snapshot.png)
 
 ## Options
 
-FIXME: listing of options this app accepts.
-
-## Examples
-
-...
-
-### Bugs
-
-...
-
-### Any Other Sections
-### That You Think
-### Might be Useful
-
-## License
-
-Copyright © 2015 FIXME
-
-Distributed under the Eclipse Public License either version 1.0 or (at
-your option) any later version.
+```
+cmdstat ~/.zsh_history
+```
