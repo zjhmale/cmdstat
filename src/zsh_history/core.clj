@@ -1,6 +1,7 @@
 (ns zsh-history.core
   (:require [environ.core :refer [env]]
-            [clojure.string :as cs])
+            [clojure.string :as cs]
+            [jansi-clj.core :refer :all])
   (:gen-class))
 
 (defn history-line->command
@@ -20,7 +21,10 @@
 (defn format-history-map
   [history-map]
   (letfn [(format-one [[command weight]]
-                      (format "%s => %d times\n" command weight))]
+                      (let [command (magenta command)
+                            weight (cyan (str weight "times"))
+                            arrow (yellow "=>")]
+                        (format "%s %s %s\n" command arrow weight)))]
     (cs/join (map format-one history-map))))
 
 (defn format-history-lines
