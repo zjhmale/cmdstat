@@ -1,6 +1,6 @@
 ## cmdstat
 
-a tool to find you top 10 command ever your used
+a tool to find your top 10 commands ever you used
 
 ## Installation
 
