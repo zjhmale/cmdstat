@@ -22,7 +22,7 @@
   [history-map]
   (letfn [(format-one [[command weight]]
                       (let [command (magenta command)
-                            weight (cyan (str weight "times"))
+                            weight (cyan (str weight " times"))
                             arrow (yellow "=>")]
                         (format "%s %s %s" command arrow weight)))]
     (cs/join "\n" (map format-one history-map))))
